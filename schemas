@@ -1,0 +1,27 @@
+Potential Schema
+{
+  "entities": {
+    "Question": {
+      "characteristics": ["sentence"],
+      "normalization_rules": ["to_lower", "remove_punctuation"]
+    },
+    "PRO": {
+      "characteristics": ["score", "outcome"],
+      "normalization_rules": ["to_lower", "remove_punctuation"]
+    },
+    "CRF_Name": {
+      "characteristics": ["title", "form_name"],
+      "matching_rules": ["title_match"],
+      "synonym_mapping": {"sleep scale": "sleep wake assessment"},
+      "proximity_rules": {"max_distance": 2},
+      "scoring_system": {
+        "exact_match": 100,
+        "partial_match": 50
+      }
+    }
+  },
+  "review_process": {
+    "manual_review_required": true,
+    "update_loop": true
+  }
+}
